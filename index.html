@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Showcase</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+            color: #1e293b;
+        }
+        /* Custom Soft Glow Download Button Hover Effect */
+        .btn-bright {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+        .btn-bright:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+        }
+        /* Soft background ambient blur */
+        .ambient-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 relative overflow-x-hidden">
 
+    <div class="ambient-bg bg-indigo-200 -top-20 -left-20"></div>
+    <div class="ambient-bg bg-purple-200 -bottom-20 -right-20"></div>
+
+    <main class="w-full max-w-4xl flex flex-col items-center gap-8 relative z-10">
+        
+        <!-- Header Title -->
+        <header class="text-center space-y-3">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-semibold tracking-wide uppercase">
+                <i class="fa-solid fa-sparkles"></i> Media Gallery
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Video Showcase
+            </h1>
+            <p class="text-slate-600 text-base md:text-lg max-w-md mx-auto">
+                Watch the preview below and download the attached project files.
+            </p>
+        </header>
+
+        <!-- Video Player Box -->
+        <div class="w-full aspect-video bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl shadow-slate-200/60 relative p-2">
+            <!-- 
+                ===========================================================
+                HOW TO INPUT YOUR VIDEO FILE:
+                1. Put your video file (e.g., video.mp4) in the same folder on GitHub.
+                2. Change src="your-video.mp4" below to match your filename.
+                ===========================================================
+            -->
+            <video 
+                class="w-full h-full object-contain rounded-2xl bg-slate-900" 
+                controls 
+                preload="metadata"
+                poster="https://placehold.co/1280x720/f1f5f9/64748b?text=Video+Preview">
+                
+                <source src="your-video.mp4" type="video/mp4">
+                
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Download ZIP Button Section -->
+        <div class="flex flex-col items-center gap-3 w-full sm:w-auto">
+            <!-- 
+                ===========================================================
+                HOW TO INPUT YOUR ZIP FILE:
+                1. Put your ZIP file (e.g., download.zip) in the same folder on GitHub.
+                2. Change href="your-file.zip" below to match your filename.
+                3. Set download="your-file.zip" to specify the downloaded file name.
+                ===========================================================
+            -->
+            <a 
+                href="your-file.zip" 
+                download="your-file.zip" 
+                class="btn-bright w-full sm:w-auto px-10 py-4 rounded-2xl text-white font-bold text-base md:text-lg flex items-center justify-center gap-3 cursor-pointer">
+                <i class="fa-solid fa-file-zipper text-xl"></i>
+                <span>Download ZIP Package</span>
+            </a>
+            
+            <span class="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                <i class="fa-solid fa-shield-check text-emerald-500"></i> Direct & Safe Download
+            </span>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-xs text-slate-400 font-medium relative z-10">
+        Hosted with ❤️ on GitHub Pages
+    </footer>
+
+</body>
+</html>
